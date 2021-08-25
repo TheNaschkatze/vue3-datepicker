@@ -224,7 +224,9 @@ export default defineComponent({
     watchEffect(
       () =>
         (input.value =
-          props.modelValue && isValid(props.modelValue)
+          props.modelValue
+          && isValid(props.modelValue)
+              && input.value.length === props.inputFormat.length
             ? format(props.modelValue, props.inputFormat, {
                 locale: props.locale,
               })
